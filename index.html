@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Revision Tools - Flashcards</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="page__header">
+      <div class="branding">
+        <h1>Revision Tools</h1>
+        <p class="tagline">CSV-powered flashcards with smart review</p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat__label">Timer</span>
+          <span id="timer" class="stat__value">00:00</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Answered Today</span>
+          <span id="answeredToday" class="stat__value">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Deck Remaining</span>
+          <span id="remaining" class="stat__value">0</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="panel__header">
+        <h2>Load your CSV</h2>
+        <p>Expected columns: question, option1, option2, option3, option4, option5, correct (1-5 or A-E).</p>
+      </div>
+      <div class="uploader">
+        <label class="button" for="csvInput">Choose CSV</label>
+        <input id="csvInput" type="file" accept=".csv" />
+        <div id="loadStatus" class="status"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel__header">
+        <div>
+          <h2>Flashcard</h2>
+          <p id="cardStatus" class="status">Upload a CSV to begin.</p>
+        </div>
+        <button id="nextCard" class="button button--ghost" type="button">Skip</button>
+      </div>
+      <div class="card" id="card" aria-live="polite">
+        <div class="card__question" id="question"></div>
+        <div class="card__options" id="options"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel__header">
+        <h2>Daily progress</h2>
+        <p>See how many questions you answered each day.</p>
+      </div>
+      <div id="calendar" class="calendar"></div>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
