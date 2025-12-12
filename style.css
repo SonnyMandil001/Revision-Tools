@@ -1,0 +1,233 @@
+:root {
+  color-scheme: light dark;
+  --bg: #0e1116;
+  --panel: #151a22;
+  --accent: #4db6ff;
+  --muted: #9aa7b8;
+  --text: #e9eef5;
+  --success: #8adf8a;
+  --warning: #ffc857;
+  --danger: #ff7b7b;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 0% 0%, rgba(77, 182, 255, 0.12), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(138, 223, 138, 0.12), transparent 35%),
+    var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.page__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.branding h1 {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.tagline {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  width: 100%;
+  max-width: 520px;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat__label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.stat__value {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+.panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.panel h2 {
+  margin: 0 0 4px;
+}
+
+.panel p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.uploader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#csvInput {
+  display: none;
+}
+
+.button {
+  background: linear-gradient(135deg, #4db6ff, #6f7dff);
+  color: #0e1116;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(77, 182, 255, 0.25);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(77, 182, 255, 0.22);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 16px rgba(77, 182, 255, 0.2);
+}
+
+.button--ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text);
+  box-shadow: none;
+}
+
+.status {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px;
+  min-height: 220px;
+}
+
+.card__question {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.card__options {
+  display: grid;
+  gap: 10px;
+}
+
+.option {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.12s ease, border 0.12s ease, transform 0.12s ease;
+}
+
+.option:hover {
+  background: rgba(77, 182, 255, 0.1);
+  border-color: rgba(77, 182, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.option.correct {
+  border-color: rgba(138, 223, 138, 0.6);
+  background: rgba(138, 223, 138, 0.12);
+}
+
+.option.incorrect {
+  border-color: rgba(255, 123, 123, 0.7);
+  background: rgba(255, 123, 123, 0.12);
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(90px, 1fr));
+  gap: 10px;
+}
+
+.calendar__cell {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 10px;
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.calendar__day {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.calendar__count {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .page__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .calendar {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
